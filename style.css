@@ -1,0 +1,196 @@
+/* ==========================================================================
+   💎 TECHTELEMETRY HUB UNIFIED STYLING VAULT (VERSION 1.0.0 BUILD)
+   ========================================================================== */
+
+:root {
+    --midnight-slate: #1a1e29;
+    --primary-indigo: #2857a4;
+    --text-white: #ffffff;
+    --text-dark: #2d3748;
+    --text-muted: #718096;
+    --bg-light: #f7fafc;
+    --border-color: #e2e8f0;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', -apple-system, 'Segoe UI', Roboto, sans-serif;
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    line-height: 1.6;
+}
+
+/* 🧱 NAVIGATION MATRIX */
+#blog-header {
+    background-color: var(--midnight-slate);
+    padding: 15px 50px;
+    border-bottom: 2px solid var(--primary-indigo);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.blog-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo-vault {
+    color: var(--text-white);
+    font-size: 1.4rem;
+    font-weight: 800;
+    letter-spacing: 0.05rem;
+}
+
+.logo-vault i {
+    color: #4299e1;
+    margin-right: 5px;
+}
+
+.nav-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 25px;
+}
+
+.nav-links a {
+    color: #cbd5e0;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--text-white);
+    text-shadow: 0 0 8px rgba(255,255,255,0.3);
+}
+
+/* 👤 HERO THEME CONTAINER */
+.hero-vault {
+    background: linear-gradient(135deg, #1a1e29 0%, #2857a4 100%);
+    color: var(--text-white);
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.hero-vault h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin: 0 0 15px 0;
+    letter-spacing: -0.05rem;
+}
+
+.hero-vault p {
+    font-size: 1.2rem;
+    color: #cbd5e0;
+    max-width: 700px;
+    margin: 0 auto;
+    font-weight: 400;
+}
+
+/* 📰 BLOCK CARDS ARRANGEMENT */
+.blog-container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+.articles-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.blog-card {
+    background-color: var(--text-white);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.02);
+    transition: all 0.3s ease-in-out;
+    text-align: left;
+}
+
+.card-tag {
+    display: inline-block;
+    background-color: rgba(66, 153, 225, 0.15);
+    color: #2b6cb0;
+    font-weight: 700;
+    font-size: 0.8rem;
+    padding: 4px 12px;
+    border-radius: 50px;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+}
+
+.blog-card h2 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin: 0 0 10px 0;
+    color: var(--midnight-slate);
+}
+
+.card-meta {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin: 0 0 20px 0;
+}
+
+.card-excerpt {
+    font-size: 1.05rem;
+    color: #4a5568;
+    margin: 0 0 25px 0;
+}
+
+.card-footer-metrics {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid var(--border-color);
+    padding-top: 20px;
+}
+
+.latency-badge {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #2f855a;
+    background-color: #f0fff4;
+    padding: 6px 14px;
+    border-radius: 6px;
+    border: 1px solid #c6f6d5;
+}
+
+.read-more-btn {
+    font-weight: 700;
+    color: var(--primary-indigo);
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.blog-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(40, 87, 164, 0.08);
+    border-color: var(--primary-indigo);
+}
+
+.blog-card:hover .read-more-btn {
+    color: #4299e1;
+}
+
+/* 🌐 FOOTER CONFIGURATION */
+.blog-footer {
+    text-align: center;
+    padding: 30px 20px;
+    border-top: 1px solid var(--border-color);
+    background-color: var(--text-white);
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-top: 60px;
+}
