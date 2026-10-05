@@ -15,6 +15,11 @@
                 <i class="fa-solid fa-terminal"></i> TechTelemetry.Hub
             </div>
             <ul class="nav-links">
+                <li class="lang-switch-container">
+                    <button id="btn-en" class="lang-btn active" onclick="switchLanguage('en')">EN</button>
+                    <button id="btn-hi" class="lang-btn" onclick="switchLanguage('hi')">हिं</button>
+                </li>
+
                 <li><a href="https://github.io" target="_blank">Consultant Resume</a></li>
                 <li><a href="https://github.com" target="_blank">GitHub Vault</a></li>
             </ul>
@@ -36,14 +41,22 @@
                 <div class="card-tag">Asynchronous Systems</div>
                 <h2>Demystifying FastAPI Asynchronous Middleware under Heavy Surge Loads</h2>
                 <p class="card-meta">Published: October 4, 2026 | By Sudhir Kumar Mishra</p>
-                <p class="card-excerpt">
-                    Why standard synchronous web frameworks trigger catastrophic thread starvation bugs under concurrent packet surges, and how an asynchronous request interceptor handles 50 parallel streams in under 700 ms...
-                </p>
-            <div class="card-footer-metrics">
-    <span class="latency-badge"><i class="fa-solid fa-bolt"></i> 14.00 ms avg</span>
-    <a href="fastapi-article.html" style="text-decoration: none;"><span class="read-more-btn">Read Deep Dive <i class="fa-solid fa-arrow-right"></i></span></a>
-</div>
+            <!-- ENGLISH BLOCK CONTAINER -->
+                <div class="lang-block-en">
+                    <h2>Demystifying FastAPI Asynchronous Middleware under Heavy Surge Loads</h2>
+                    <p class="card-excerpt">Why standard synchronous web frameworks trigger catastrophic thread starvation bugs under concurrent packet surges, and how an asynchronous request interceptor handles 50 parallel streams in under 700 ms...</p>
+                </div>
 
+                <!-- HINDI BLOCK CONTAINER -->
+                <div class="lang-block-hi" style="display: none;">
+                    <h2>भारी सर्ज लोड के तहत FastAPI एसिंक्रोनस मिडलवेयर के रहस्य को समझना</h2>
+                    <p class="card-excerpt">क्यों मानक सिंक्रोनस वेब फ्रेमवर्क समानांतर पैकेट सर्ज के दौरान थ्रेड स्टार्वेशन एरर पैदा करते हैं, और कैसे एक असिंक्रोनस रिक्वेस्ट इंटरसेप्टर 50 पैरेलल स्ट्रीम्स को 700 ms से कम में संभालता है...</p>
+                </div>
+
+                <div class="card-footer-metrics">
+                    <span class="latency-badge"><i class="fa-solid fa-bolt"></i> 14.00 ms avg</span>
+                    <a href="fastapi-article.html" style="text-decoration: none;"><span class="read-more-btn">Read Deep Dive <i class="fa-solid fa-arrow-right"></i></span></a>
+                </div>
             </article>
 
             <!-- 📰 ARTICLE 2: PLAYWRIGHT SESSIONS COOKIES -->
@@ -82,5 +95,29 @@
     <footer class="blog-footer">
         <p>© 2026 TechTelemetry Hub. Managed and Structured by Sudhir Kumar Mishra. Deployed via GitHub Pages Cloud.</p>
     </footer>
+    <script>
+function switchLanguage(lang) {
+    // 🔑 THE SELECTION MATRIX INTERCEPTOR
+    const blocksEn = document.querySelectorAll('.lang-block-en');
+    const blocksHi = document.querySelectorAll('.lang-block-hi');
+    const btnEn = document.getElementById('btn-en');
+    const btnHi = document.getElementById('btn-hi');
+
+    if (lang === 'hi') {
+        blocksEn.forEach(b => b.style.display = 'none');
+        blocksHi.forEach(b => b.style.display = 'block');
+        btnHi.classList.add('active');
+        btnEn.classList.remove('active');
+        console.log("⚙️ [System Engine] Display context flipped to Hindi successfully.");
+    } else {
+        blocksEn.forEach(b => b.style.display = 'block');
+        blocksHi.forEach(b => b.style.display = 'none');
+        btnEn.classList.add('active');
+        btnHi.classList.remove('active');
+        console.log("⚙️ [System Engine] Display context flipped to English successfully.");
+    }
+}
+</script>
+
 </body>
 </html>

@@ -194,3 +194,37 @@ body {
     font-size: 0.9rem;
     margin-top: 60px;
 }
+
+/* ==========================================================================
+🌐 DUAL-LANGUAGE TOGGLE UI SWITCHER MATRIX
+   ========================================================================== */
+.lang-switch-container {
+    display: inline-flex;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 30px;
+    padding: 3px;
+    align-items: center;
+}
+
+.lang-btn {
+    background: transparent;
+    border: none;
+    color: #cbd5e0;
+    padding: 4px 12px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    cursor: pointer;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+
+.lang-btn.active {
+    background-color: var(--primary-indigo);
+    color: var(--text-white);
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+}
+
+.lang-btn:hover:not(.active) {
+    color: var(--text-white);
+}
