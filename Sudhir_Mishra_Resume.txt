@@ -1,0 +1,56 @@
+=======================================================================
+SUDHIR KUMAR MISHRA | SENIOR AUTOMATION & DATA SYSTEMS CONSULTANT
+=======================================================================
+📍 Raipur, Chhattisgarh, India | 💻 Workstation: HP EliteBook (16GB RAM)
+📬 GitHub Vault: https://github.com/sudhir-react
+------------------------------------------------------------------------
+
+PROFESSIONAL SUMMARY:
+Analytical and performance-driven Senior Software & Systems Automation 
+Consultant with an extensive career footprint in building high-concurrency 
+asynchronous backend architectures and resilient data integration pipelines. 
+Expert in optimizing algorithmic complexity down to constant O(1) metrics 
+and engineering sub-millisecond data schema validation interceptors. 
+
+=======================================================================
+CORE TECHNICAL COMPETENCIES (THE WAR MATRIX)
+=======================================================================
+• Core Backend Engines   : Python, Java, Node.js (JavaScript ES6+), C++
+• Advanced Automation    : Playwright Headless Chromium, Puppeteer, Scrapy
+• Data Layer Operations  : SQLite3, PostgreSQL, Write-Ahead Logging (WAL)
+• Security Frameworks    : HMAC SHA256 Cryptographic Verification
+• Methodology Controls   : Agile Scrum, Git Version Control, Project Boards
+
+=======================================================================
+PRODUCTION PROVEN BENCHMARKS & VERIFIED REPOSITORIES
+=======================================================================
+1. SWASTHYA-MITRA AUTOMATION GRID CORE
+• Engineered a high-velocity Fast API Data Validation Interceptor.
+• Achieved a blistering processing schema latency threshold of 0.0065 ms.
+• Isolated event loops from database file locking collisions during surges.
+
+2. TECHTELEMETRY PUBLICATION ENGINE
+• Deployed a decoupled multi-lingual technology news dashboard platform.
+• Designed dynamic local Storage persistence state mechanics across templates.
+• Enforced zero-runtime lag language context switching via CSS selectors.
+
+3. RESILIENT BROWSER AUTOMATION SHELL
+• Programmed multi-threaded Playwright web crawlers to bypass anti-bot shields.
+• Overwrote 'navigator. WebDriver' runtime telemetry properties to FALSE.
+• Managed persistent session cookies and local JSON checkpoint ledgers.
+
+=======================================================================
+PROFESSIONAL EXPERIENCE & CONTRACT FOOTPRINT
+=======================================================================
+Independent Systems & Automation Consultant             (2013 - PRESENT)
+Global Client Node Operations (Upwork / GitHub Ecosystem)
+• Managed active enterprise-grade distributed software repositories.
+• Resolved complex backend bugs and thread starvation exceptions cleanly.
+• Maintained strict sprint cycles using GitHub Agile Project Boards.
+
+=======================================================================
+EDUCATION & CREDENTIALS
+=======================================================================
+• Bachelor of Science / Engineering Systems Foundation
+• Upwork Certified Rising Talent Software Engineer (October 2026)
+=======================================================================
