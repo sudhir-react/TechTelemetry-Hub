@@ -1,0 +1,23 @@
+# 🌐 TECHTELEMETRY AUTOMATED DYNAMIC CONTINUOUS INGESTION PIPELINE
+name: Deploy and Flush Production CDN Grid
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "posts_data.js"
+      - "index.html"
+
+jobs:
+  build-and-invalidate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ingest Source Code Matrix Logs
+        uses: actions/checkout@v4
+
+      - name: Setup Enterprise Deployment Node Container
+        uses: actions/configure-pages@v4
+
+      - name: Deploy Live Assets Smoothly onto Global CDN Space
+        uses: actions/deploy-pages@v4
+        id: deployment
