@@ -52,6 +52,19 @@ function renderUnifiedWorkspaceGrid() {
                 <div id="live-news-feed-target" class="news-feed-scroller">
                     <!-- News items append here dynamically -->
                 </div>
+                            <!-- 🏢 MICROSERVICE CROSS-NAVIGATION CROSSOVER INTERCEPTOR -->
+            <div style="background: rgba(59, 130, 246, 0.1); border: 1px dashed #3b82f6; border-radius: 12px; padding: 1rem; margin-top: 1.5rem; text-align: left;">
+                <h4 style="color: #60a5fa; font-size: 0.88rem; margin-bottom: 6px; text-transform: uppercase; font-weight: 700;">
+                    <i class="fa-solid fa-network-wired"></i> Backend AI Node
+                </h4>
+                <p style="color: #94a3b8; font-size: 0.8rem; line-height: 1.4; margin-bottom: 10px;">
+                    Review Sudhir's standalone, cloud-certified Model Context Protocol (MCP) server managing 50 concurrent agents under a 6.0ms latency ceiling.
+                </p>
+                <a href="https://github.com/sudhir-react/Sovereign-MCP-Agentic-Broker" target="_blank" style="display: inline-flex; align-items: center; gap: 6px; background: #3b82f6; color: white; text-decoration: none; font-size: 0.82rem; font-weight: 700; padding: 6px 12px; border-radius: 6px; transition: background 0.2s ease;">
+                    Access AI Vault <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 0.7rem;"></i>
+                </a>
+            </div>
+
             </aside>
         </div>
     `;
