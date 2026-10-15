@@ -4,20 +4,20 @@
 
 /* 🌐 GLOBAL SYSTEM VARIABLES & COLOR MATRICES */
 :root {
-    --bg-base: #f8fafc;
-    --panel-glass: rgba(255, 255, 255, 0.85);
-    --panel-border: rgba(226, 232, 240, 0.8);
-    --text-main: #0f172a;
-    --text-muted: #64748b;
-    --emerald-prime: #059669;
-    --emerald-glow: rgba(5, 150, 105, 0.15);
-    --accent-blue: #2563eb;
-    --accent-blue-hover: #1d4ed8;
-    --card-bg: #ffffff;
-    --shadow-premium: 0 10px 25px -5px rgba(15, 23, 42, 0.04), 0 8px 10px -6px rgba(15, 23, 42, 0.04);
+    --bg-base: #0f172a;
+    --panel-glass: rgba(15, 23, 42, 0.65);
+    --panel-border: rgba(255, 255, 255, 0.08);
+    --text-main: #f8fafc;
+    --text-muted: #94a3b8;
+    --emerald-prime: #10b981;
+    --emerald-glow: rgba(16, 185, 129, 0.15);
+    --accent-blue: #3b82f6;
+    --accent-blue-hover: #60a5fa;
+    --card-bg: rgba(30, 41, 59, 0.45);
+    --shadow-premium: 0 4px 30px rgba(0, 0, 0, 0.2);
 }
 
-/* 🧱 GLOBAL LAYER RESET framework */
+/* 🧱 GLOBAL LAYER RESET FRAMEWORK */
 *, *::before, *::after {
     margin: 0;
     padding: 0;
@@ -29,11 +29,12 @@ body {
     background-color: var(--bg-base);
     color: var(--text-main);
     min-height: 100vh;
-    line-height: 1.5;
+    line-height: 1.6;
     background-image: 
-        radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.05) 0px, transparent 50%),
-        radial-gradient(at 100% 100%, rgba(5, 150, 105, 0.04) 0px, transparent 50%);
+        radial-gradient(at 0% 0%, rgba(59, 130, 246, 0.08) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(16, 185, 129, 0.06) 0px, transparent 50%);
     background-attachment: fixed;
+    padding-bottom: 40px;
 }
 
 /* 🏢 PREMIUM NAVIGATION INTERCEPTOR HEADER */
@@ -46,11 +47,11 @@ body {
     top: 0;
     z-index: 1000;
     padding: 16px 40px;
-    box-shadow: 0 4px 20px -12px rgba(15, 23, 42, 0.08);
+    box-shadow: var(--shadow-premium);
 }
 
 .blog-nav {
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
@@ -96,7 +97,7 @@ body {
 /* 🌐 BILINGUAL PERSISTENT LANGUAGE SWITCHER SLIDER */
 .lang-switch-container {
     display: flex;
-    background: rgba(226, 232, 240, 0.6);
+    background: rgba(30, 41, 59, 0.8);
     padding: 4px;
     border-radius: 8px;
     border: 1px solid var(--panel-border);
@@ -111,37 +112,118 @@ body {
     color: var(--text-muted);
     border-radius: 6px;
     cursor: pointer;
-    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: all 0.2s ease;
 }
 
 .lang-btn.active {
-    background: var(--card-bg);
+    background: #1e293b;
     color: var(--emerald-prime);
-    box-shadow: 0 2px 6px rgba(15, 23, 42, 0.08);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 }
 
-/* 📊 INTERACTIVE BLOG CONTAINER & DECOUPLED CARDS MATRIX */
-.placeholder-text {
-    font-size: 1.05rem;
-    font-weight: 600;
-    color: var(--text-muted);
+/* 📡 SOVEREIGN GLASSMORPHISM LIVE NEWS SIDEBAR ALIGNMENT MATRIX */
+.blog-workspace-matrix {
+    display: flex;
+    gap: 2rem;
+    width: 100%;
+    margin-top: 1.5rem;
+}
+
+.main-articles-track {
+    flex: 70%;
+}
+
+.tech-telemetry-sidebar {
+    flex: 30%;
+    background: var(--card-bg);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--panel-border);
+    border-radius: 16px;
+    padding: 1.5rem;
+    height: fit-content;
+    position: sticky;
+    top: 6rem;
+    box-shadow: var(--shadow-premium);
+}
+
+.sidebar-header {
+    font-size: 1.25rem;
+    color: #f3f4f6;
+    margin-bottom: 1.5rem;
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 10px;
+    gap: 0.5rem;
+    border-bottom: 1px solid var(--panel-border);
+    padding-bottom: 0.75rem;
 }
 
-/* ==========================================================================
-   🖥️ MOBILE VIEWPORT RESPONSIVE BREAKPOINT INTERCEPTORS
-   ========================================================================== */
+/* 🟢 THE REAL-TIME INFRASTRUCTURE PULSE DOT EFFECT */
+.pulse-indicator {
+    width: 10px;
+    height: 10px;
+    background-color: var(--emerald-prime);
+    border-radius: 50%;
+    display: inline-block;
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+    animation: telemetryPulse 2s infinite;
+}
+
+@keyframes telemetryPulse {
+    0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+    70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(16, 185, 129, 0); }
+    100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+}
+
+.news-card-node {
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 12px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-left: 4px solid var(--accent-blue);
+    border-top: 1px solid var(--panel-border);
+    border-right: 1px solid var(--panel-border);
+    border-bottom: 1px solid var(--panel-border);
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.news-card-node:hover {
+    background: rgba(255, 255, 255, 0.05);
+    transform: translateX(4px);
+}
+
+.news-tag {
+    font-size: 0.72rem;
+    background: rgba(59, 130, 246, 0.15);
+    color: #60a5fa;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-weight: 700;
+    text-transform: uppercase;
+    display: inline-block;
+}
+
+.news-card-title {
+    font-size: 0.95rem;
+    color: #e5e7eb;
+    margin: 0.5rem 0;
+    font-weight: 700;
+}
+
+.news-card-summary {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+}
+
+/* Responsive Adaptive Fluid Ingress Grid Breakpoints */
 @media (max-width: 1024px) {
-    #blog-header { padding: 16px 20px; }
-    .nav-links { gap: 16px; }
+    .blog-workspace-matrix { flex-direction: column; }
+    .tech-telemetry-sidebar { position: static; width: 100%; }
 }
 
 @media (max-width: 768px) {
+    #blog-header { padding: 16px 20px; }
     .blog-nav { flex-direction: column; gap: 16px; }
     .nav-links { width: 100%; justify-content: center; flex-wrap: wrap; gap: 14px; }
-    .article-content { padding: 24px 16px; margin: 20px auto; border-radius: 12px; }
-    .main-heading, .blog-feed-title { font-size: 1.5rem !important; }
 }
