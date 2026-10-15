@@ -1,120 +1,100 @@
 // ==========================================================================
-// 💿 TECHTELEMETRY ROUTER ENGINE - DYNAMIC SINGLE PAGE APPLICATION CONTROLLER
+// 📡 TECHTELEMETRY ENGINE INTERCEPTOR COR INTERACTIVE SPA ROUTER
 // ==========================================================================
 
-// Global Application State Tracker
-let activeLanguage = localStorage.getItem('preferred_lang') || 'en';
+let currentLanguage = "en"; // Global translation state tracker
 
-// DOM Mount Coordinates Locator
-const workspaceNode = document.getElementById("dynamic-workspace-node");
-const btnEn = document.getElementById("btn-en");
-const btnHi = document.getElementById("btn-hi");
-
-// 🌐 1. MASTER SINGLE PAGE SPA ROUTER GRID
-function telemetryAppRouter() {
-    if (!workspaceNode) return;
-    
-    // Extracting the targeted hash path state parameter
-    const currentHash = window.location.hash || '#feed';
-    
-    // Branch Ingestion Loop 1: Dynamic Article View Panel
-    if (currentHash.startsWith('#article/')) {
-        const articleId = currentHash.replace('#article/', '');
-        const targetPost = techBlogArticles.find(post => post.id === articleId);
-        
-        if (targetPost) {
-            renderArticleView(targetPost);
-        } else {
-            workspaceNode.innerHTML = `
-                <div class="article-content" style="text-align: center;">
-                    <a class="back-link-btn" onclick="window.location.hash='#feed'"><i class="fa-solid fa-arrow-left"></i> Back to Main Feed</a>
-                    <h2 style="color: #ef4444;"><i class="fa-solid fa-triangle-exclamation"></i> Error 404: Target Node Missing</h2>
-                    <p style="color: #64748b;">The requested telemetry record could not be extracted from storage.</p>
-                </div>`;
-        }
-    } 
-    // Branch Ingestion Loop 2: Master Core Aggregate Feed Grid
-    else {
-        renderMainFeedView();
-    }
-}
-
-// 📰 2. RENDER MASTER CORE AGGREGATE LOG FEED VIEW
-function renderMainFeedView() {
-    let headerText = activeLanguage === 'hi' ? 'ताज़ा तकनीकी ऑडिट फीड' : 'Latest Telemetry Audits';
-    let feedHtml = `<h2 class="blog-feed-title">${headerText}</h2>`;
-    
-    techBlogArticles.forEach(post => {
-        const activeTitle = activeLanguage === 'hi' ? post.title_hi : post.title;
-        feedHtml += `
-            <div class="blog-card" onclick="window.location.hash='#article/${post.id}'">
-                <span class="card-tag">${post.category}</span>
-                <h3 style="font-size: 1.4rem; margin: 6px 0; color: #0f172a; font-weight: 700;">${activeTitle}</h3>
-                <p style="color: #475569; font-size: 1rem; margin: 8px 0 12px 0; line-height: 1.6;">${post.snippet}</p>
-                <div class="card-meta">
-                    <i class="fa-regular fa-calendar"></i> ${post.date} | <i class="fa-regular fa-user"></i> By Sudhir Mishra
-                </div>
-            </div>`;
-    });
-    
-    workspaceNode.innerHTML = feedHtml;
-}
-
-// 💿 3. FIXED: RENDER DYNAMIC DETAILED ARTICLE WITH CORRECT VARIABLE MAPPING KEYS
-function renderArticleView(post) {
-    const activeTitle = activeLanguage === 'hi' ? post.title_hi : post.title;
-    
-    // 🔑 FIXED KEY MATCHING SIGNATURES: Bypassing the undefined token trap cleanly
-    const activeContent = activeLanguage === 'hi' ? post.content_hi : post.content_en;
-    const backBtnText = activeLanguage === 'hi' ? 'मुख्य फ़ीड पर वापस जाएं' : 'Back to Main Feed';
-    
-    workspaceNode.innerHTML = `
-        <article class="article-content">
-            <a class="back-link-btn" onclick="window.location.hash='#feed'">
-                <i class="fa-solid fa-arrow-left"></i> ${backBtnText}
-            </a>
-            <br>
-            <span class="card-tag">${post.category}</span>
-            <h1 style="font-size: 2.2rem; margin: 10px 0; color: #0f172a; letter-spacing: -0.04rem; font-weight: 800;">${activeTitle}</h1>
-            <p class="card-meta"><i class="fa-regular fa-calendar"></i> Published: ${post.date} | <i class="fa-solid fa-code"></i> Architect: Sudhir Kumar Mishra</p>
-            <hr style="border: 0; border-top: 1px solid #e2e8f0; margin: 20px 0;">
-            <div class="article-body">
-                ${activeContent || '<p style="color:red;">Error: Content payload compilation fault.</p>'}
-            </div>
-        </article>`;
-}
-
-// 🗂️ 4. THEMATIC TRANSLATION SWAP INTERCEPTORS
-function executeLanguageSwap(langCode) {
-    activeLanguage = langCode;
-    localStorage.setItem('preferred_lang', langCode);
-    
-    if (langCode === 'hi') {
-        if(btnHi) btnHi.classList.add('active');
-        if(btnEn) btnEn.classList.remove('active');
-    } else {
-        if(btnEn) btnEn.classList.add('active');
-        if(btnHi) btnHi.classList.remove('active');
-    }
-    
-    telemetryAppRouter();
-}
-
-// 📡 5. CORE EVENT LOOP ROUTING INITIALIZATION CHANNEL
-if (btnEn && btnHi) {
-    btnEn.addEventListener("click", () => executeLanguageSwap('en'));
-    btnHi.addEventListener("click", () => executeLanguageSwap('hi'));
-}
-
-window.addEventListener("hashchange", telemetryAppRouter);
-window.addEventListener("DOMContentLoaded", () => {
-    if (activeLanguage === 'hi') {
-        if(btnHi) btnHi.classList.add('active');
-        if(btnEn) btnEn.classList.remove('active');
-    } else {
-        if(btnEn) btnEn.classList.add('active');
-        if(btnHi) btnHi.classList.remove('active');
-    }
-    telemetryAppRouter();
-    console.log("🚀 TechTelemetry SPA Routing Ingest Core fully booted onto memory spaces.");
+document.addEventListener("DOMContentLoaded", () => {
+    initializeApplicationCore();
 });
+
+function initializeApplicationCore() {
+    // Mount language switch listeners securely
+    const btnEn = document.getElementById("btn-en");
+    const btnHi = document.getElementById("btn-hi");
+
+    if (btnEn && btnHi) {
+        btnEn.addEventListener("click", () => switchLanguageMatrix("en"));
+        btnHi.addEventListener("click", () => switchLanguageMatrix("hi"));
+    }
+
+    // Render the complete unified grid on initial boot
+    renderUnifiedWorkspaceGrid();
+}
+
+function switchLanguageMatrix(targetLang) {
+    currentLanguage = targetLang;
+    
+    // Toggle active classes on visual switcher buttons
+    document.getElementById("btn-en")?.classList.toggle("active", targetLang === "en");
+    document.getElementById("btn-hi")?.classList.toggle("active", targetLang === "hi");
+
+    // Re-render strings dynamically across all nodes smoothly
+    renderUnifiedWorkspaceGrid();
+}
+
+function renderUnifiedWorkspaceGrid() {
+    const workspaceRoot = document.getElementById("dynamic-workspace-node");
+    if (!workspaceRoot) return;
+
+    // 🧱 STEP 1: Building the full responsive Multi-Column Sidebar layout structure dynamically
+    workspaceRoot.innerHTML = `
+        <div class="blog-workspace-matrix">
+            <!-- 📄 Left Side: 70% Articles Stream -->
+            <div id="articles-container" class="main-articles-track"></div>
+
+            <!-- 📡 Right Side: 30% Glassmorphism Live News Sidebar -->
+            <aside class="tech-telemetry-sidebar">
+                <h2 class="sidebar-header">
+                    <span class="pulse-indicator"></span> 
+                    ${currentLanguage === "en" ? "Real-Time Telemetry Audit Feed" : "ताज़ा तकनीकी ऑडिट फीड"}
+                </h2>
+                <div id="live-news-feed-target" class="news-feed-scroller">
+                    <!-- News items append here dynamically -->
+                </div>
+            </aside>
+        </div>
+    `;
+
+    // 🧱 STEP 2: Ingesting and rendering the 8 Premium Telemetry Articles inside left track
+    const articlesContainer = document.getElementById("articles-container");
+    if (articlesContainer) {
+        techBlogArticles.forEach(article => {
+            const cardNode = document.createElement("div");
+            cardNode.className = "blog-card";
+            
+            // Language selection tags logic
+            const titleText = currentLanguage === "en" ? article.title : article.title_hi;
+            const snippetText = article.snippet;
+
+            cardNode.innerHTML = `
+                <span class="card-tag">${article.category}</span>
+                <h2 class="blog-feed-title" style="font-size: 1.35rem; margin-bottom: 12px; border:none; padding:0;">${titleText}</h2>
+                <p style="color: #94a3b8; font-size: 0.95rem; margin-bottom: 14px;">${snippetText}</p>
+                <div class="card-meta">
+                    <i class="fa-regular fa-calendar"></i> ${article.date} | <i class="fa-regular fa-user"></i> By Sudhir Mishra
+                </div>
+            `;
+            articlesContainer.appendChild(cardNode);
+        });
+    }
+
+    // 🧱 STEP 3: Ingesting and rendering the 3 Global Tech News Nodes inside right sidebar target
+    const newsContainer = document.getElementById("live-news-feed-target");
+    if (newsContainer && typeof liveTechNewsFeed !== "undefined") {
+        liveTechNewsFeed.forEach(newsItem => {
+            const newsCard = document.createElement("div");
+            newsCard.className = "news-card-node";
+
+            const newsTitle = currentLanguage === "en" ? newsItem.title_en : newsItem.title_hi;
+            const newsSummary = currentLanguage === "en" ? newsItem.summary_en : newsItem.summary_hi;
+
+            newsCard.innerHTML = `
+                <span class="news-tag">${newsItem.badge}</span>
+                <h4 class="news-card-title">${newsTitle}</h4>
+                <p class="news-card-summary">${newsSummary}</p>
+            `;
+            newsContainer.appendChild(newsCard);
+        });
+    }
+}
