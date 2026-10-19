@@ -1,22 +1,65 @@
 // ==========================================================================
-// 💎 TECHTELEMETRY INTERACTIVE STATE LEDGER - LIKE & COMMENT INGRESS CONTROLLER
+// 💎 TECHTELEMETRY INTERACTIVE STATE LEDGER - SECURED LIKE & COMMENT ENGINE
 // ==========================================================================
 
-// In-Memory State Vault simulating localized transient data arrays
-const portfolioReactionState = {
-    likesCount: 14,
-    commentsList: [
-        { user: "Alex_DevOps_Lead", text: "Blistering speed metrics on the SQLite3 WAL mode implementation!", timestamp: "Oct 14, 2026" },
-        { user: "Marta_AI_Architect", text: "The Multi-Client Asynchronous MCP Router architecture is bulletproof.", timestamp: "Oct 15, 2026" }
-    ]
+// 🔑 SYSTEM UPGRADE: LocalStorage State Rehydration Pattern
+const STORAGE_KEY = "tech_telemetry_reaction_state";
+
+const defaultState = {
+  likesCount: 14,
+  commentsList: [
+    {
+      user: "Alex_DevOps_Lead",
+      text: "Blistering speed metrics on the SQLite3 WAL mode implementation!",
+      timestamp: "Oct 14, 2026",
+    },
+    {
+      user: "Marta_AI_Architect",
+      text: "The Multi-Client Asynchronous MCP Router architecture is bulletproof.",
+      timestamp: "Oct 15, 2026",
+    },
+  ],
+};
+
+// Load existing state from local hardware registry or fallback to defaults safely
+let portfolioReactionState = defaultState;
+try {
+  const savedState = localStorage.getItem(STORAGE_KEY);
+  if (savedState) {
+    portfolioReactionState = JSON.parse(savedState);
+  }
+} catch (err) {
+  console.error(
+    "🚨 [State Rehydration Failed] Using default state matrix:",
+    err,
+  );
+}
+
+function saveStateToLocalRegistry() {
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(portfolioReactionState));
+  } catch (err) {
+    console.error("🚨 [Storage Sync Failed] Write operation aborted:", err);
+  }
+}
+
+// 🛡️ CYBER SECURITY SHIELD: Anti-XSS HTML Sanitizer Interceptor
+defuseHTMLInjectionAttackString = (rawString) => {
+  if (!rawString) return "";
+  return rawString
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#x27;")
+    .replace(/\//g, "&#x2F;");
 };
 
 function initializeInteractiveReactionPanel() {
-    const interactionRoot = document.getElementById("interactive-feedback-node");
-    if (!interactionRoot) return;
+  const interactionRoot = document.getElementById("interactive-feedback-node");
+  if (!interactionRoot) return;
 
-    // Render the beautiful structural Glassmorphism interaction panel layout template
-    interactionRoot.innerHTML = `
+  interactionRoot.innerHTML = `
         <div style="background: rgba(30, 41, 59, 0.45); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 16px; padding: 2rem; margin-top: 3rem; box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2); backdrop-filter: blur(16px); text-align: left;">
             
             <!-- 🟢 LIKE INGRESS ACCELERATOR SECTION -->
@@ -48,60 +91,81 @@ function initializeInteractiveReactionPanel() {
         </div>
     `;
 
-    // Initialize individual logical listeners
-    document.getElementById("like-increment-btn")?.addEventListener("click", executeLikeMutationSweep);
-    document.getElementById("submit-comment-btn")?.addEventListener("click", executeCommentIngressWrite);
+  document
+    .getElementById("like-increment-btn")
+    ?.addEventListener("click", executeLikeMutationSweep);
+  document
+    .getElementById("submit-comment-btn")
+    ?.addEventListener("click", executeCommentIngressWrite);
 
-    renderCommentsStreamMatrix();
+  renderCommentsStreamMatrix();
 }
 
 function renderCommentsStreamMatrix() {
-    const target = document.getElementById("comments-stream-target");
-    if (!target) return;
-    target.innerHTML = portfolioReactionState.commentsList.map(c => `
+  const target = document.getElementById("comments-stream-target");
+  if (!target) return;
+
+  target.innerHTML = portfolioReactionState.commentsList
+    .map(
+      (c) => `
         <div style="background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.05); padding: 1rem; border-radius: 10px; margin-bottom: 0.75rem; border-left: 3px solid #3b82f6;">
             <div style="display:flex; justify-content:space-between; font-size:0.75rem; color:#60a5fa; margin-bottom:4px; font-family:monospace;">
                 <span><strong>${c.user}</strong></span> <span>${c.timestamp}</span>
             </div>
             <p style="color:#e5e7eb; font-size:0.88rem; line-height:1.4;">${c.text}</p>
         </div>
-    `).join("");
+    `,
+    )
+    .join("");
 }
 
 function executeLikeMutationSweep() {
-    portfolioReactionState.likesCount++;
-    const display = document.getElementById("likes-counter-display");
-    if (display) display.innerText = portfolioReactionState.likesCount;
-    
-    // Add rapid button scale effect logic safely
-    const btn = document.getElementById("like-increment-btn");
-    if (btn) {
-        btn.style.transform = "scale(1.05)";
-        setTimeout(() => btn.style.transform = "scale(1)", 150);
-    }
+  portfolioReactionState.likesCount++;
+  const display = document.getElementById("likes-counter-display");
+  if (display) display.innerText = portfolioReactionState.likesCount;
+
+  saveStateToLocalRegistry(); // Persistent sync on click
+
+  const btn = document.getElementById("like-increment-btn");
+  if (btn) {
+    btn.style.transform = "scale(1.05)";
+    setTimeout(() => (btn.style.transform = "scale(1)"), 150);
+  }
 }
 
 function executeCommentIngressWrite() {
-    const userInput = document.getElementById("comment-user-input");
-    const textInput = document.getElementById("comment-text-input");
-    
-    if (!userInput || !textInput || !userInput.value.trim() || !textInput.value.trim()) return;
+  const userInput = document.getElementById("comment-user-input");
+  const textInput = document.getElementById("comment-text-input");
 
-    portfolioReactionState.commentsList.unshift({
-        user: userInput.value.trim(),
-        text: textInput.value.trim(),
-        timestamp: "Just Now"
-    });
+  if (
+    !userInput ||
+    !textInput ||
+    !userInput.value.trim() ||
+    !textInput.value.trim()
+  )
+    return;
 
-    // Reset parameters safely
-    textInput.value = "";
-    
-    renderCommentsStreamMatrix();
+  // 🔒 CYBER SECURITY STRIKE: Intercepting and defusing potential hacker injection string payloads
+  const sanitizedUser = defuseHTMLInjectionAttackString(userInput.value.trim());
+  const sanitizedText = defuseHTMLInjectionAttackString(textInput.value.trim());
+
+  portfolioReactionState.commentsList.unshift({
+    user: sanitizedUser,
+    text: sanitizedText,
+    timestamp: "Just Now",
+  });
+
+  textInput.value = "";
+
+  saveStateToLocalRegistry(); // Persistent sync on comment
+  renderCommentsStreamMatrix();
 }
 
-// Hook transaction gate into initialization queues safely
 if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", initializeInteractiveReactionPanel);
+  document.addEventListener(
+    "DOMContentLoaded",
+    initializeInteractiveReactionPanel,
+  );
 } else {
-    initializeInteractiveReactionPanel();
+  initializeInteractiveReactionPanel();
 }
